@@ -1,8 +1,8 @@
 import { Box, Flex, Spacer, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import Template from "../../components/template";
+import Template from "../../../components/template";
 
-const ChangePassword = () => {
+const Profile = () => {
   return (
     <Template>
      
@@ -10,4 +10,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword;
+export default Profile;

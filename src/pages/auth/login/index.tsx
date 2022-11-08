@@ -5,24 +5,22 @@ import {
   Heading,
   Input,
   Stack,
-  Text,
+  Text
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../../contexts/auth";
 
 const Login = () => {
+  const { setuser } = useAuth();
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-  const formLogin = (data) => {
-    console.log(data);
+  const formLogin = data => {
+    setuser(data);
   };
 
   return (
@@ -63,10 +61,10 @@ const Login = () => {
               mb={8}
               type="text"
               _placeholder={{
-                color: "#888787",
+                color: "#888787"
               }}
               borderColor="#f86124"
-              {...register("usuario", {required: true})}
+              {...register("usuario", { required: true })}
             />
             <Input
               color="#000"
@@ -76,9 +74,9 @@ const Login = () => {
               type="password"
               borderColor="#f86124"
               _placeholder={{
-                color: "#888787",
+                color: "#888787"
               }}
-              {...register("senha", {required: true})}
+              {...register("senha", { required: true })}
             />
 
             <Flex
