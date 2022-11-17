@@ -24,10 +24,6 @@ export default async (req, res) => {
 
 async function getLogin(usuarioEmail, usuarioSenha) {
 
-    //console.log("GET LOGIN");
-    //console.log(usuarioEmail);
-    //usuarioSenha = md5(usuarioSenha).toString();
-
     const sql = `
         select * from contrato_cliente
         where ccldoc = $1 and ccldoc = $2

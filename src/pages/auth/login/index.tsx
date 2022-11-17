@@ -5,22 +5,77 @@ import {
   Heading,
   Input,
   Stack,
-  Text
+  Text,
+  useToast
 } from "@chakra-ui/react";
+import axios from "axios";
+import { setCookies, deleteCookie } from "cookies-next";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { userAgent } from "next/server";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../../contexts/auth";
 
+
 const Login = () => {
-  const { setuser } = useAuth();
+
+  const { user, setUser }: any = useAuth();
   const router = useRouter();
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const toast = useToast();
+
+  if (user) {
+    router.push('/');
+  }
 
   const formLogin = data => {
-    setuser(data);
+
+    console.log(data);
+
+    axios.post('/api/user', {
+      usuario: data.usuario,
+      senha: data.senha
+    }).then(function (response) {
+
+      if (response.data.rowCount == 0) {
+
+        toast({
+          title: 'Usuário não encontrado!',
+          position: 'bottom-right',
+          status: "warning",
+          containerStyle: {
+            background: "red"
+          }
+        })
+
+      } else if (response.data.rowCount > 1) {
+
+        toast({
+          title: 'Problemas no usuário, contato o adminstrador do sistema!',
+          position: 'bottom-right',
+          status: "warning",
+          containerStyle: {
+            background: "red"
+          }
+        })
+        return;
+
+      } else {
+
+        setUser(response.data.rows[0]);
+        deleteCookie('user');
+        setCookies('user', JSON.stringify(response.data.rows[0]));
+        router.push("/")
+      }
+
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+    //setuser(data);
   };
 
   return (
