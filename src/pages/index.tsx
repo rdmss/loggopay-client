@@ -36,11 +36,6 @@ const IndexPage = () => {
 
   const router = useRouter();
 
-  //vou fazer por aqui... não é a melhor forma. mas fazer o que 
-  //const [user, setUser]: any = useState(); não é o mais bonito... mas já ajuda
-  //ele ta rerenderizzando sozinho?n eu to aertando f5
-  //blz, vou continuar aqui, vouf azer o post da ocorrência
-  //vlw
   const { user, setUser } : any = useAuth();
 
   useEffect(() => {
