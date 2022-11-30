@@ -30,7 +30,7 @@ const Payment = () => {
   }, [])
 
   const getItens = async () =>
-    await axios.get('/api/process/2').then(function (response) {
+    await axios.get(`/api/process/da`).then(function (response) {
       setItens(response.data)
     });
 
@@ -38,10 +38,9 @@ const Payment = () => {
     <Template>
 
       <Wrap spacing='50px' align='center' p={5} pt={10} color={"gray.700"} overflow="scroll">
-        {itens?.map((data) => {
-          console.log(data);
+        {itens?.map((data) => (
           <PaymentItem handleItemClick={handleItemClick} data={data} key={data.embcod }/>
-        })}
+        ))}
       </Wrap>
 
       <PaymentModal isOpen={isOpen} onClose={onClose} item={item} />
