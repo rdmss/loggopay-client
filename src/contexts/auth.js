@@ -6,13 +6,13 @@ const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
 
-  const [user, setUser] = useState(null);
+  let [user, setUser] = useState(null);
 
   const userCookie = Cookies.get('user');
 
   if(userCookie){
-    //user = (JSON.parse(userCookie));
-    setUser(JSON.parse(userCookie));
+    user = (JSON.parse(userCookie));
+    //setUser(JSON.parse(userCookie));
   }
 
   console.log("user changed on context to: ", user);

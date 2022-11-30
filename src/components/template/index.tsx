@@ -13,6 +13,7 @@ const Template = ({ children }) => {
   return (
     <>
       <Flex height="100vh" bg="#F0F0F0" direction="column">
+
         <Flex
           bgGradient="linear(to-t, #ff4800, #f17746)"
           width="100%"
@@ -41,6 +42,7 @@ const Template = ({ children }) => {
           </Flex>
         </Flex>
       </Flex>
+      
     </>
   );
 

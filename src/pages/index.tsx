@@ -9,29 +9,6 @@ import { useRouter } from "next/router";
 import { useAuth } from "../contexts/auth";
 import { getCookie } from "cookies-next";
 
-const menuItens = [
-  {
-    menu: "Moeda",
-    link: "#",
-  },
-  {
-    menu: "Meus Pagamentos",
-    link: "#",
-  },
-  {
-    menu: "Dados Pessoais",
-    link: "#",
-  },
-  {
-    menu: "Alterar Senha",
-    link: "#",
-  },
-  {
-    menu: "Sair",
-    link: "#",
-  },
-];
-
 const IndexPage = () => {
 
   const router = useRouter();
