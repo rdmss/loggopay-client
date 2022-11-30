@@ -38,9 +38,10 @@ const Payment = () => {
     <Template>
 
       <Wrap spacing='50px' align='center' p={5} pt={10} color={"gray.700"} overflow="scroll">
-        {itens?.map((data) => (
-          <PaymentItem handleItemClick={handleItemClick} data={data} />
-        ))}
+        {itens?.map((data) => {
+        //  console.log(data);
+          <PaymentItem handleItemClick={handleItemClick} data={data} key={data.embcod }/>
+        })}
       </Wrap>
 
       <PaymentModal isOpen={isOpen} onClose={onClose} item={item} />

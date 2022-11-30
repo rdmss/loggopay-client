@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { useAuth } from "../contexts/auth";
 import { getCookie } from "cookies-next";
 
-const IndexPage = () => {
+  const IndexPage = () => {
 
   const router = useRouter();
 

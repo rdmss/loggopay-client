@@ -33,7 +33,7 @@ const NavBar = () => {
 
   useEffect(() => {
     if (user) {
-      setNomeUsuario(user.cclpau);
+      setNomeUsuario(user.cclnfn);
     }
   }, [user])
 
