@@ -11,7 +11,8 @@ const AuthProvider = ({ children }) => {
   const userCookie = Cookies.get('user');
 
   if(userCookie){
-    user = (JSON.parse(userCookie));
+    //user = (JSON.parse(userCookie));
+    setUser(JSON.parse(userCookie));
   }
 
   console.log("user changed on context to: ", user);
