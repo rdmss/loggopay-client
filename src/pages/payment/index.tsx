@@ -39,7 +39,7 @@ const Payment = () => {
 
       <Wrap spacing='50px' align='center' p={5} pt={10} color={"gray.700"} overflow="scroll">
         {itens?.map((data) => {
-        //  console.log(data);
+          console.log(data);
           <PaymentItem handleItemClick={handleItemClick} data={data} key={data.embcod }/>
         })}
       </Wrap>
