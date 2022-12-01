@@ -19,10 +19,13 @@ const Payment = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [item, setItem] = useState();
   const [itens, setItens] = useState([]);
+  const [tabIndex, setTabIndex] = useState(0);
 
-  const handleItemClick = (itemModal) => {
+
+  const handleItemClick = (itemModal, index) => {
     setItem(itemModal);
     onOpen();
+    setTabIndex(index);
   }
 
   useEffect(() => {
@@ -39,11 +42,11 @@ const Payment = () => {
 
       <Wrap spacing='50px' align='center' p={5} pt={10} color={"gray.700"} overflow="scroll">
         {itens?.map((data) => (
-          <PaymentItem handleItemClick={handleItemClick} data={data} key={data.embcod }/>
+          <PaymentItem handleItemClick={handleItemClick} data={data} key={data.embcod} />
         ))}
       </Wrap>
 
-      <PaymentModal isOpen={isOpen} onClose={onClose} item={item} />
+      <PaymentModal isOpen={isOpen} onClose={onClose} item={item} index={tabIndex}/>
 
     </Template >
   );

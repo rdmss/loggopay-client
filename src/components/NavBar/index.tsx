@@ -5,8 +5,11 @@ import MenuItem from "./MenuItem";
 
 const menuItens = [
   {
-    menu: "Moeda",
+    menu: "Home",
     link: "/",
+  }, {
+    menu: "Moedas",
+    link: "/currency",
   },
   {
     menu: "Meus Pagamentos",
@@ -22,7 +25,7 @@ const menuItens = [
   },
   {
     menu: "Sair",
-    link: "#",
+    link: "/auth/logoff",
   },
 ];
 

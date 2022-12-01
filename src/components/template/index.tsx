@@ -17,13 +17,13 @@ const Template = ({ children }) => {
         <Flex
           bgGradient="linear(to-t, #ff4800, #f17746)"
           width="100%"
-          height="100px"
+          height="120px"
           direction="row"
           px="100px"
           alignItems="center"
         >
-          <Box>
-            <Image src="/image/logo.png" width={251} height={54} />
+          <Box p={2}>
+            <Image src="/image/logo.png" width={251} height={54}  />
           </Box>
         </Flex>
 
